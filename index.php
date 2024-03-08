@@ -1,13 +1,16 @@
 <?php
 
 require "functions.php";
+ $config = require "config.php";
 require "Database.php";
+
 
 echo "Hi, IPa22 👋";
 
- $db = new Database();
- $posts = $db->execute();
+ $db = new Database($config);
  
+ $posts = $db->execute("SELECT * FROM posts");
+
 echo "<h1>Posts</h1>";
 
 echo "<ol>";
