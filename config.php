@@ -5,7 +5,7 @@ return
     "port" => "3306",
     "user" => "root",
     "password" => "",
-    "dbname" => "blog_janis_bramanis",
+    "dbname" => "blog_markuss_petrovs",
     "charset" => "utf8mb4"
 
 ];

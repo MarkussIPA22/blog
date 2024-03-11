@@ -17,3 +17,8 @@ VALUES
 
 SELECT * FROM posts;
 
+INSERT INTO categories (name)
+VALUES ('sport'), ('music'), ('food');
+
+
+
