@@ -1,55 +1,46 @@
 <?php
-
+// Dabūt datus no datu bāzes un izvadīt tos HTML
 require "functions.php";
- $config = require "config.php";
+$config = require "config.php";
 require "Database.php";
-
 
 echo "Hi, IPa22 👋";
 
- $db = new Database($config);
+$db = new Database($config);
 
- $query_string= "SELECT * FROM posts";
- $params= [];
+$query_string = "SELECT * FROM posts";
+$params = [];
+if (isset($_GET["id"]) && $_GET["id"] != "") {
+  // .= paņem iepriekšējo vērtību un pieliek WHERE klāt ❤️
+  $query_string .= " WHERE id=:id";
+  $params[":id"] = $_GET["id"];
+} 
 
- if(isset($_GET["id"]) && $_GET["id"] != "") {
-     //panem ipeirkšējo  vērtību un pieliek Where klat
-$query_string .= " WHERE id=:id";
-$params =[":id" => $_GET["id"]];
- }
- $posts = $db->execute($query_string ,$params);
- 
+if (isset($_GET["category"]) && $_GET["category"] != "") {
+  // .= paņem iepriekšējo vērtību un pieliek WHERE klāt ❤️
+  $query_string .= " JOIN categories ON posts.category_id = categories.id WHERE categories.name=:category";
+  $params[":category"] = $_GET["category"];
+} 
 
+$posts = $db->execute($query_string, $params);
 
- $query_string1 = "SELECT * FROM posts";
- $params2 = [];
-  
-
- if(isset($_GET["categories"]) && $_GET["categories"] != "") {
-    $query_string1 .= " WHERE categories=:categories";
-$params2 =[":categories" => $_GET["categories"]];
- }
- $categories = $db->execute($query_string1 ,$params2);
-    
- 
-
-//  echo $_GET["id"];
-
-echo "<form >";
- echo "<input name='id'  />";
- echo"<button> Filter by ID</button>";
+echo "<form>";
+echo "<input name='id'/>";
+echo "<button>Filter by ID</button>";
 echo "</form>";
 
 
-echo "<form >";
- echo "<input name='categories'  />";
- echo"<button> Filter by Categories</button>";
+echo "<form>";
+echo "<input name='category'/>";
+echo "<button>Filter by Category</button>";
 echo "</form>";
+
 
 echo "<h1>Posts</h1>";
 
 echo "<ol>";
 foreach($posts as $post) {
-    echo "<li>" .$post ["title"] . "</li>";
+  echo "<li>" . $post["title"] . "</li>";
 }
 echo "</ol>";
+
