@@ -31,7 +31,22 @@ echo "</form>";
 
 
 echo "<form>";
-echo "<input name='category'/>";
+
+// //IF 
+// if(isset($_GET["category"])) {
+//     echo "<input name='category' value = '". $_GET["category"] ."'/>";
+// }else{
+//     echo "<input name='category' value = ''/>";
+// }
+
+//Ternary Operator
+echo "<input name='category' value = '". (isset($_GET["category"]) ? $_GET["category"] : '')."'/>";
+
+
+//Null coalescing operator
+
+
+
 echo "<button>Filter by Category</button>";
 echo "</form>";
 
@@ -43,4 +58,3 @@ foreach($posts as $post) {
   echo "<li>" . $post["title"] . "</li>";
 }
 echo "</ol>";
-
