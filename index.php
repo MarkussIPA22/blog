@@ -4,7 +4,7 @@ require "functions.php";
 $config = require "config.php";
 require "Database.php";
 
-echo "Hi, IPa22 👋";
+
 
 $db = new Database($config);
 
@@ -20,41 +20,9 @@ if (isset($_GET["category"]) && $_GET["category"] != "") {
   // .= paņem iepriekšējo vērtību un pieliek WHERE klāt ❤️
   $query_string .= " JOIN categories ON posts.category_id = categories.id WHERE categories.name=:category";
   $params[":category"] = $_GET["category"];
-} 
-
+}
 $posts = $db->execute($query_string, $params);
 
-echo "<form>";
-echo "<input name='id'/>";
-echo "<button>Filter by ID</button>";
-echo "</form>";
+require "views/index.view.php";
 
 
-echo "<form>";
-
-// //IF 
-// if(isset($_GET["category"])) {
-//     echo "<input name='category' value = '". $_GET["category"] ."'/>";
-// }else{
-//     echo "<input name='category' value = ''/>";
-// }
-
-//Ternary Operator
-echo "<input name='category' value = '". (isset($_GET["category"]) ? $_GET["category"] : '')."'/>";
-
-
-//Null coalescing operator
-
-
-
-echo "<button>Filter by Category</button>";
-echo "</form>";
-
-
-echo "<h1>Posts</h1>";
-
-echo "<ol>";
-foreach($posts as $post) {
-  echo "<li>" . $post["title"] . "</li>";
-}
-echo "</ol>";
