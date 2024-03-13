@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <nav>
-        <a href="/">About Us</a>
-        <a href="about.php"> Posts</a>
-    </nav>
+<?php require "components/head.php" ?>
+<?php require "components/navbar.php" ?>
+
 <form>
   <input name='id'/>
   <button>Filter by ID</button>
@@ -29,8 +20,5 @@
 <?php } ?>
 </ol>
 
-
-</body>
-</html>
-
+<?php require "components/footer.php " ?>
 
