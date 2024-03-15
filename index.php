@@ -1,20 +1,32 @@
 <?php
 
+$data = [
+    "name" => "Filipis",
+    "age" => 69,
+    "height" => 175,
+];
+// echo $data ["age"];
+
+$data2 = [
+    "name" => "Harijs",
+    "height" => 181,
+];
+
+echo $data2 ["age"] ?? "nav vecuma";
+if (isset($data2["age"])) {
+    echo $data2["age"];
+}
+
+if (array_key_exists("age", $data2)){
+    echo $data2["age"];
+}
+
+
 echo "ddd";
 
 
-$url = parse_url ($_SERVER["REQUEST_URI"])["path"];
 
-if($url == "/") {
-    require "controllers/index.php";
-} else if($url == "/About") {
-    require "controllers/About.php";
-}else if($url == "/story") {
-    require "controllers/story.php";
-}else { 
-    http_response_code(404);
-require "controllers/404.php";
-}
+
 
 
 
