@@ -1,0 +1,13 @@
+
+    
+h1 {
+    font-family: monospace;
+    font-size: 3em;
+    animation: color-change 1s infinite;
+  }
+  
+  @keyframes color-change {
+    12% { color: pink; }
+    50% { color: blue; }
+    100% { color:royalblue; }
+  }
