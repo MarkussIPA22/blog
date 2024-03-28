@@ -6,7 +6,11 @@ h1 {
 }
 
 @keyframes color-change {
-  12% { color: pink; }
+  50% { color: #9fff20; }
   50% { color: blue; }
-  100% { color:royalblue; }
+  100% { color:red; }
+}
+
+.delete-form {
+  display: inline-block;
 }
