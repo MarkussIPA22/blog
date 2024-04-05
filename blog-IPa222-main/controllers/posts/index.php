@@ -1,6 +1,5 @@
 <?php
 // Dabūt datus no datu bāzes un izvadīt tos HTML
-require "functions.php";
 $config = require "config.php";
 require "Database.php";
 
